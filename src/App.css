@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+body {
+    background: #898989;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.content{
+    background: #898989;
+    color: #000000;
+    width: 960px;
+    /*border: 1px solid black;*/
+    margin: 40px auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.item {
+    /*border: 1px solid black;*/
+    background: #ffffff;
+    margin: 10px 0;
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .05), 0 15px 40px rgba(0, 0, 0, .2);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.item-content {
+    display: flex;
+    grid-template-rows: 20px auto 40px 20px;
+    grid-gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+    color: #000000;
+    text-align: center;
+    /*border: 1px solid black;*/
+    width: 50%;
+    margin: 10px auto 30px auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.toggle {
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    padding: 10px 25px;
+    display: inline-block;
+    margin: 15px 15px 15px 0px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    background: #cb4e4e;
+    color: #fff;
+    box-shadow: 0 6px #ab3c3c;
+    transition: none;
+    border-radius: 0 0 5px 5px;
 }
+.toggle:hover {
+    box-shadow: 0 4px #ab3c3c;
+    top: 2px;
+}
+
+/*.toggle {
+    border: none;
+    height: 40px;
+    width: 50px;
+    border-radius: 30%;
+background: #ffffff;
+box-shadow:  5px 5px 10px #d9d9d9,
+             -5px -5px 10px #ffffff;
+}*/
