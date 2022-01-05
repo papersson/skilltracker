@@ -1,30 +1,54 @@
 import ProgressBar from "./ProgressBar.js";
-import {useState} from 'react'
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 let end;
 let start;
-function Item({ name='JavaScript', width=400, progress, target }) {
-  const [toggleText, setToggleText] = useState('Start')
-  const props = {width: width, progress: progress, target: target };
+function Item({ id, name, width = 400, progress, target, items, setItems }) {
+  const [toggleText, setToggleText] = useState("Start");
+  const props = { width: width, progress: progress, target: target };
+
+  const deleteItem = () => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
+  //const editItem = () => {
+  //  // IDK
+  //  setTarget(newTarget);
+  //  setName(newName);
+  //};
 
   const track = () => {
-    if (toggleText == 'Start') {
-      setToggleText('Stop')
+    if (toggleText === "Start") {
+      setToggleText("Stop");
       start = Date.now();
     } else {
-      setToggleText('Start')
+      setToggleText("Start");
       end = Date.now();
       const duration = end - start;
       console.log(duration);
     }
-  }
+  };
 
   return (
     <section className="item">
-      <h3>{name}</h3>
+      <div className="upper">
+        <h3>{name}</h3>
+        <FontAwesomeIcon
+          className="trash-icon"
+          icon={faTrash}
+          onClick={deleteItem}
+        />
+      </div>
       <div className="item-content">
-        <button className="toggle" onClick={e => track(e)}>{toggleText}</button>
+        <button className="toggle" onClick={(e) => track(e)}>
+          {toggleText}
+        </button>
         <ProgressBar {...props} />
+        <span className="progress">
+          {progress}/{target}
+        </span>
         <button className="edit">Edit</button>
       </div>
     </section>
@@ -32,5 +56,3 @@ function Item({ name='JavaScript', width=400, progress, target }) {
 }
 
 export default Item;
-
-

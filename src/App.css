@@ -2,34 +2,73 @@ body {
     background: #898989;
 }
 
-
-.content{
+.content {
     background: #898989;
     color: #000000;
     width: 960px;
     /*border: 1px solid black;*/
     margin: 40px auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
 .item {
     /*border: 1px solid black;*/
+    width: 85%;
     background: #ffffff;
     margin: 10px 0;
     padding: 10px 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .05), 0 15px 40px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.create-item {
+    width: 250px;
+    padding: 15px;
+}
+
+.upper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    width: 97%;
+}
+.trash-icon {
+    cursor: pointer;
+}
+.trash-icon:hover {
+    filter: invert(11%) sepia(91%) saturate(7500%) hue-rotate(2deg)
+        brightness(97%) contrast(113%);
+}
+
+input,
+input:focus {
+    width: 100%;
+    border: 0;
+    outline: none;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .item-content {
-    display: flex;
-    grid-template-rows: 20px auto 40px 20px;
+    display: grid;
+    grid-template-columns: 2fr 10fr 1fr 1fr;
     grid-gap: 10px;
     align-items: center;
-    margin-bottom: 20px;
+    justify-items: center;
+    margin-top: -10px;
 }
 
 .title {
@@ -61,6 +100,61 @@ body {
 .toggle:hover {
     box-shadow: 0 4px #ab3c3c;
     top: 2px;
+}
+
+.create-item-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+.create-item-button {
+    width: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    padding: 10px 20px;
+}
+
+.add-button {
+    margin-right: 20px;
+    background: #cb4e4e;
+    color: #fff;
+}
+
+button:disabled,
+button[disabled] {
+    cursor: not-allowed;
+    background-color: #cb4e4e;
+    color: #fff;
+    filter: brightness(70%);
+    opacity: 80%;
+}
+
+.cancel-button {
+    background: #343434;
+    color: #fefefe;
+}
+
+.plus {
+    font-size: 84px;
+    color: #cb4e4e;
+    -webkit-text-stroke: 1px black;
+}
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+    width: 3em;
+    height: 3em;
+    margin-top: 20px;
+    stroke: #ab3c3c;
+    stroke-width: 1;
+}
+
+.svg-icon:hover {
+    stroke: #cb4e4e;
 }
 
 /*.toggle {

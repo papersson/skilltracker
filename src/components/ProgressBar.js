@@ -30,13 +30,7 @@ function ProgressBar({ width, progress, target }) {
         className="progress-bar"
         width={width}
         height={25}
-
-
       ></svg>
-
-        <span className="progress">
-          {progress}/{target}
-        </span>
     </>
   );
 }
