@@ -1,10 +1,9 @@
 body {
-    background: #898989;
+    background: #efefef;
+    color: #000000;
 }
 
 .content {
-    background: #898989;
-    color: #000000;
     width: 960px;
     /*border: 1px solid black;*/
     margin: 40px auto;
@@ -23,6 +22,7 @@ body {
     padding: 10px 30px;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05), 0 15px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .create-item {
@@ -72,7 +72,6 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .title {
-    color: #000000;
     text-align: center;
     /*border: 1px solid black;*/
     width: 50%;
@@ -94,11 +93,11 @@ input[type="number"]::-webkit-inner-spin-button {
     background: #cb4e4e;
     color: #fff;
     box-shadow: 0 6px #ab3c3c;
-    transition: none;
+    transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 0 0 5px 5px;
 }
 .toggle:hover {
-    box-shadow: 0 4px #ab3c3c;
+    box-shadow: 0 5px #ab3c3c;
     top: 2px;
 }
 
@@ -150,11 +149,14 @@ SVG Icons - svgicons.sparkk.fr
     height: 3em;
     margin-top: 20px;
     stroke: #ab3c3c;
+    filter: brightness(120%);
+    stroke: #cb4e4e;
     stroke-width: 1;
 }
 
 .svg-icon:hover {
-    stroke: #cb4e4e;
+    cursor: pointer;
+    filter: brightness(80%);
 }
 
 /*.toggle {
