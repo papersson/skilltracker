@@ -39,7 +39,7 @@ function CreateItem({ createItem, setCreateItem, items, setItems }) {
         <button
           className="create-item-button add-button"
           onClick={() => addItem(topicInput, targetInput)}
-          disabled={!topicInput || !targetInput}
+          disabled={!topicInput || !targetInput || targetInput < 1}
         >
           Add
         </button>
