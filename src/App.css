@@ -92,13 +92,23 @@ input[type="number"]::-webkit-inner-spin-button {
     position: relative;
     background: #cb4e4e;
     color: #fff;
-    box-shadow: 0 6px #ab3c3c;
+    box-shadow: 0 6px #b23434;
     transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 0 0 5px 5px;
 }
 .toggle:hover {
-    box-shadow: 0 5px #ab3c3c;
+    /* #4ecb4e*/
+    box-shadow: 0 6px #b23434;
     top: 2px;
+}
+
+.green-toggle {
+    background: #4ecb4e;
+    box-shadow: 0 6px #34b234;
+}
+.green-toggle:hover {
+    /* #4ecb4e*/
+    box-shadow: 0 6px #34b234;
 }
 
 .create-item-container {
