@@ -2,6 +2,7 @@ import ProgressBar from "./ProgressBar.js";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import noteService from "../services/item.js";
 
 let end;
 let start;
@@ -11,6 +12,7 @@ function Item({ id, name, width = 400, progress, target, items, setItems }) {
 
   const deleteItem = () => {
     setItems(items.filter((item) => item.id !== id));
+    noteService.remove(id);
   };
 
   //const editItem = () => {

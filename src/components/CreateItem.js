@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Item from "./Item.js";
+import noteService from "../services/item.js";
 
 function CreateItem({ createItem, setCreateItem, items, setItems }) {
   const [topicInput, setTopicInput] = useState("");
@@ -13,8 +14,10 @@ function CreateItem({ createItem, setCreateItem, items, setItems }) {
       target: target,
       id: items.length + 1,
     };
-    setItems(items.concat(newItem));
+
+    //setItems(items.concat(newItem));
     setCreateItem(false);
+    noteService.create(newItem).then((newItem) => setItems(items.concat(newItem)));
   };
 
   return (

@@ -1,7 +1,8 @@
 import "./App.css";
 import Item from "./components/Item.js";
 import CreateItem from "./components/CreateItem.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import noteService from "./services/item.js";
 
 let fatigue;
 function App() {
@@ -19,21 +20,17 @@ function App() {
     target: 1000,
     id: 2,
   };
-  let [items, setItems] = useState([item1, item2]);
-  let [createItem, setCreateItem] = useState(false);
+  const [items, setItems] = useState([]);
+  const [createItem, setCreateItem] = useState(false);
+
+  const loadData = () => {
+    noteService.getAll().then((initialItems) => setItems(initialItems));
+  };
+  useEffect(() => loadData(), []);
 
   const queryNewItem = () => {
-    //const item = {
-    //  name: "Description",
-    //  width: 500,
-    //  progress: 0,
-    //  target: 100,
-    //  id: 3,
-    //};
-
     const item = <CreateItem />;
     setCreateItem(true);
-    //setItems(items.concat(item));
   };
 
   return (
