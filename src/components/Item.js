@@ -6,13 +6,16 @@ import noteService from "../services/item.js";
 
 let end;
 let start;
-function Item({ id, name, width = 400, progress, target, items, setItems }) {
+function Item({ id, name, width = 400, progress, target, items, setItems, fatigue, setFatigue }) {
   const [toggleText, setToggleText] = useState("Start");
   const props = { width: width, progress: progress, target: target };
+  //const [hours, setHours] = useState(0);
 
   const deleteItem = () => {
     setItems(items.filter((item) => item.id !== id));
     noteService.remove(id);
+    let fatigue = noteService.getFatigue()
+    console.log(fatigue)
   };
 
   //const editItem = () => {
@@ -28,8 +31,17 @@ function Item({ id, name, width = 400, progress, target, items, setItems }) {
     } else {
       setToggleText("Start");
       end = Date.now();
-      const duration = end - start;
-      console.log(duration);
+      const duration = (end - start) / (1000 * 60 * 60);
+      const item = items.filter(item => item.id === id)[0]
+      const updatedItem = {...item, progress: progress + duration}
+      const index = items.findIndex(x => x.id === id)
+      const updatedItems = [...items]
+      updatedItems[index] = updatedItem
+      setItems(updatedItems)
+      noteService.update(id, updatedItem)
+      noteService.updateFatigue(fatigue + duration)
+      setFatigue(fatigue + duration)
+      //setHours(hours + duration)
     }
   };
 
@@ -49,7 +61,7 @@ function Item({ id, name, width = 400, progress, target, items, setItems }) {
         </button>
         <ProgressBar {...props} />
         <span className="progress">
-          {progress}/{target}
+          {progress.toFixed(1)}/{target}
         </span>
         <button className="edit">Edit</button>
       </div>

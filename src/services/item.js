@@ -6,6 +6,15 @@ const getAll = () => {
   return request.then((response) => response.data);
 };
 
+const getFatigue = () => {
+    const request = axios.get(`/fatigue`)
+    return request.then((response) => response.data);
+}
+const updateFatigue = (newValue) => {
+  const request = axios.put(`/fatigue`, {value: newValue});
+  return request.then((response) => response.data);
+};
+
 const create = (newObject) => {
   const request = axios.post(baseUrl, newObject);
   return request.then((response) => response.data);
@@ -23,6 +32,8 @@ const remove = (id) => {
 
 export default {
   getAll,
+  getFatigue,
+  updateFatigue,
   create,
   update,
   remove

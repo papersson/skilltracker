@@ -14,6 +14,13 @@ function App() {
   };
   useEffect(() => loadData(), []);
 
+
+  const [fatigue, setFatigue] = useState()
+  const loadFatigue = () => {
+    noteService.getFatigue().then((fatigue) => setFatigue(fatigue));
+  };
+  useEffect(() => loadFatigue(), []);
+
   return (
     <main className="content">
       <h1 className="title">Progress tracker</h1>
@@ -27,6 +34,8 @@ function App() {
           target={item.target}
           items={items}
           setItems={setItems}
+          fatigue={fatigue}
+          setFatigue={setFatigue}
         />
       ))}
       {createItem && (

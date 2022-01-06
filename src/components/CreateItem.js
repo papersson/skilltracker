@@ -2,7 +2,7 @@ import { useState } from "react";
 import Item from "./Item.js";
 import noteService from "../services/item.js";
 
-function CreateItem({ createItem, setCreateItem, items, setItems }) {
+function CreateItem({ createItem, setCreateItem, items, setItems, fatigue }) {
   const [topicInput, setTopicInput] = useState("");
   const [targetInput, setTargetInput] = useState("");
 
